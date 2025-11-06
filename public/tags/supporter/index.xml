@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Supporter on North WaterFront</title>
-    <link>http://localhost:1313/tags/supporter/</link>
+    <link>https://example.org/tags/supporter/</link>
     <description>Recent content in Supporter on North WaterFront</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Mar 2024 18:45:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/supporter/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Mar 2025 18:45:00 +0000</lastBuildDate>
+    <atom:link href="https://example.org/tags/supporter/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Suara dari Tribun</title>
-      <link>http://localhost:1313/blog/suara-dari-tribun/</link>
-      <pubDate>Fri, 29 Mar 2024 18:45:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/suara-dari-tribun/</guid>
+      <title>The WaterFront - Bukan Hanya Sekedar Tim</title>
+      <link>https://example.org/blog/suara-dari-tribun/</link>
+      <pubDate>Sat, 29 Mar 2025 18:45:00 +0000</pubDate>
+      <guid>https://example.org/blog/suara-dari-tribun/</guid>
       <description>Cerita para supporter yang menjaga atmosfer waterfront tetap bergema sepanjang 90 menit.</description>
     </item>
   </channel>

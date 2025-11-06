@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Matchday on North WaterFront</title>
-    <link>http://localhost:1313/tags/matchday/</link>
+    <link>https://example.org/tags/matchday/</link>
     <description>Recent content in Matchday on North WaterFront</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Apr 2024 10:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/matchday/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Apr 2025 10:00:00 +0000</lastBuildDate>
+    <atom:link href="https://example.org/tags/matchday/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Matchday di Tepian Kota</title>
-      <link>http://localhost:1313/blog/matchday-di-waterside/</link>
-      <pubDate>Fri, 12 Apr 2024 10:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/matchday-di-waterside/</guid>
+      <link>https://example.org/blog/matchday-di-waterside/</link>
+      <pubDate>Sat, 12 Apr 2025 10:00:00 +0000</pubDate>
+      <guid>https://example.org/blog/matchday-di-waterside/</guid>
       <description>Sorotan pertandingan persahabatan North WaterFront melawan Harbor United dengan suasana ikonik tepi teluk.</description>
     </item>
   </channel>

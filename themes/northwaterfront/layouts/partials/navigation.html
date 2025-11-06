@@ -5,7 +5,8 @@
       {{ if not $logo }}
         {{ $logo = "images/logo-waterfront.png" }}
       {{ end }}
-      {{ $logoURL := cond (or (strings.HasPrefix $logo "http://") (strings.HasPrefix $logo "https://")) $logo ($logo | absURL) }}
+      {{ $isRemote := or (strings.HasPrefix $logo "http://") (strings.HasPrefix $logo "https://") }}
+      {{ $logoURL := cond $isRemote $logo ($logo | relURL) }}
       <div class="nwf-nav__brand">
         <a href="{{ "/" | relLangURL }}">
           <img src="{{ $logoURL }}" alt="North WaterFront" />
