@@ -2,46 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.org/blog/</loc>
+    <loc>http://localhost:1313/blog/</loc>
     <lastmod>2025-04-12T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/komunitas/</loc>
+    <loc>http://localhost:1313/tags/komunitas/</loc>
     <lastmod>2025-04-12T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/matchday/</loc>
+    <loc>http://localhost:1313/tags/matchday/</loc>
     <lastmod>2025-04-12T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/blog/matchday-di-waterside/</loc>
+    <loc>http://localhost:1313/blog/matchday-di-waterside/</loc>
     <lastmod>2025-04-12T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-04-12T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-04-12T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/fisik/</loc>
+    <loc>http://localhost:1313/tags/fisik/</loc>
     <lastmod>2025-04-05T08:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/latihan/</loc>
+    <loc>http://localhost:1313/tags/latihan/</loc>
     <lastmod>2025-04-05T08:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/blog/latihan-intensitas-terkendali/</loc>
+    <loc>http://localhost:1313/blog/latihan-intensitas-terkendali/</loc>
     <lastmod>2025-04-05T08:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/taktik/</loc>
+    <loc>http://localhost:1313/tags/taktik/</loc>
     <lastmod>2025-04-05T08:30:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/supporter/</loc>
+    <loc>http://localhost:1313/tags/supporter/</loc>
     <lastmod>2025-03-29T18:45:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/blog/suara-dari-tribun/</loc>
+    <loc>http://localhost:1313/blog/suara-dari-tribun/</loc>
     <lastmod>2025-03-29T18:45:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>https://example.org/terima-kasih/</loc>
+    <loc>http://localhost:1313/terima-kasih/</loc>
   </url><url>
-    <loc>https://example.org/upcoming/</loc>
+    <loc>http://localhost:1313/upcoming/</loc>
   </url>
 </urlset>
