@@ -14,6 +14,10 @@
 {{ $secondaryCTA := default "View Match Schedule" (index $hero "secondaryCTA") }}
 {{ $primaryLink := default "#daftar" (index $hero "primaryLink") }}
 {{ $secondaryLink := default "#jadwal" (index $hero "secondaryLink") }}
+{{ $startTime := 0 }}
+{{ with index $hero "startTime" }}
+  {{ $startTime = . }}
+{{ end }}
 
 {{ $hasVideo := and $video (ne (trim $video " ") "") }}
 {{ $hasPoster := and $poster (ne (trim $poster " ") "") }}
@@ -56,6 +60,7 @@
         muted
         loop
         playsinline
+        data-start-time="{{ $startTime }}"
       ></video>
     {{ else if $hasPoster }}
       <img class="nwf-hero__image" src="{{ $posterURL }}" alt="{{ printf "%s hero image" $title }}" />

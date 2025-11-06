@@ -60,6 +60,19 @@
 {{ if $description }}<meta name="twitter:description" content="{{ $description }}" />{{ end }}
 {{ if $image }}<meta name="twitter:image" content="{{ $image }}" />{{ end }}
 
+{{ $favicon := "" }}
+{{ with .Site.Params.favicon }}{{ $favicon = . }}{{ end }}
+{{ if not $favicon }}{{ $favicon = .Site.Params.logo }}{{ end }}
+{{ if not $favicon }}{{ $favicon = "images/logo-waterfront.png" }}{{ end }}
+{{ if $favicon }}
+  {{ $faviconURL := $favicon }}
+  {{ if not (or (strings.HasPrefix $faviconURL "http://") (strings.HasPrefix $faviconURL "https://")) }}
+    {{ $faviconURL = $faviconURL | relURL }}
+  {{ end }}
+  <link rel="icon" type="image/png" href="{{ $faviconURL }}" />
+  <link rel="apple-touch-icon" href="{{ $faviconURL }}" />
+{{ end }}
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link

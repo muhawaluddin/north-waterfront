@@ -69,6 +69,34 @@ docReady(() => {
 
   document.querySelectorAll("[data-animate]").forEach((element) => observer.observe(element));
 
+  const heroVideo = document.querySelector(".nwf-hero__video[data-start-time]");
+  if (heroVideo) {
+    const startTime = parseFloat(heroVideo.dataset.startTime || "0");
+    const seekToStart = () => {
+      if (!isNaN(startTime) && startTime > 0 && heroVideo.currentTime < startTime - 0.25) {
+        try {
+          heroVideo.currentTime = startTime;
+        } catch (error) {
+          // ignore - some browsers block immediate seek
+        }
+      }
+    };
+
+    heroVideo.addEventListener("loadedmetadata", seekToStart, { once: true });
+    heroVideo.addEventListener("loadeddata", seekToStart, { once: true });
+
+    heroVideo.addEventListener("play", () => {
+      seekToStart();
+    });
+
+    heroVideo.addEventListener("ended", () => {
+      if (!isNaN(startTime) && startTime > 0) {
+        heroVideo.currentTime = startTime;
+        heroVideo.play().catch(() => {});
+      }
+    });
+  }
+
   const uploadForms = document.querySelectorAll("[data-upload-form]");
   uploadForms.forEach((form) => {
     form.addEventListener("submit", () => {
