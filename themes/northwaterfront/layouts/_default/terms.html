@@ -1,0 +1,25 @@
+{{ define "main" }}
+<section class="nwf-section">
+  <div class="nwf-container">
+    <div class="nwf-section__header">
+      <div>
+        <p class="nwf-eyebrow">{{ humanize .Title }}</p>
+        <h1 class="nwf-section__title">{{ humanize .Title }}</h1>
+      </div>
+      <p class="nwf-section__lead">Jelajahi semua {{ lower .Title }} yang membentuk cerita komunitas North WaterFront.</p>
+    </div>
+    <div class="nwf-grid nwf-grid--cards">
+      {{ range .Data.Terms.Alphabetical }}
+        {{ $term := . }}
+        <article class="nwf-card" data-animate>
+          <div class="nwf-card__content">
+            <h3>{{ $term.Page.Title }}</h3>
+            <p>{{ $term.Count }} artikel</p>
+            <a class="nwf-link" href="{{ $term.Page.RelPermalink }}">Lihat artikel</a>
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

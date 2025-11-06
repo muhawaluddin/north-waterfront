@@ -1,0 +1,8 @@
+name = "NorthWaterFront"
+license = "MIT"
+licenselink = "https://opensource.org/licenses/MIT"
+description = "Minimalist black and white football community theme"
+homepage = "https://example.org/themes/northwaterfront"
+tags = ["football", "community", "minimal", "monochrome"]
+features = ["responsive", "parallax", "light-dark-toggle"]
+min_version = "0.100.0"

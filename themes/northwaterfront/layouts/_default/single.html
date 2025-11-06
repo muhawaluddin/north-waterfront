@@ -1,0 +1,25 @@
+{{ define "main" }}
+<article class="nwf-article">
+  <header class="nwf-article__hero">
+    <div class="nwf-container">
+      <p class="nwf-card__meta">{{ .Date.Format "02 Jan 2006" }}</p>
+      <h1 class="nwf-article__title">{{ .Title }}</h1>
+      {{ with .Params.summary }}
+        <p class="nwf-article__summary">{{ . }}</p>
+      {{ end }}
+      {{ with .Params.thumbnail }}
+        <div class="nwf-article__media">
+          <img src="{{ . | relURL }}" alt="{{ $.Title }}" />
+        </div>
+      {{ end }}
+    </div>
+  </header>
+  <div class="nwf-section">
+    <div class="nwf-container">
+      <div class="nwf-article__body">
+        {{ .Content }}
+      </div>
+    </div>
+  </div>
+</article>
+{{ end }}

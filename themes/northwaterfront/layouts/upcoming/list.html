@@ -1,0 +1,28 @@
+{{ define "main" }}
+<section class="nwf-section nwf-section--alt">
+  <div class="nwf-container">
+    <div class="nwf-stack">
+      <p class="nwf-eyebrow">Jadwal</p>
+      <h1 class="nwf-section__title">{{ .Title }}</h1>
+      {{ with .Params.description }}
+        <p class="nwf-section__lead">{{ . }}</p>
+      {{ end }}
+      <a class="nwf-link" href="{{ "/" | relURL }}#jadwal">Lihat ringkasan di beranda</a>
+    </div>
+  </div>
+</section>
+
+<section class="nwf-section">
+  <div class="nwf-container">
+    {{ partial "schedule-block.html" (dict
+      "Matches" (site.Data.matches)
+      "ShowForm" true
+      "ShowLatest" true
+      "FormTitle" "Ajukan Jadwal Baru"
+      "FormCopy" "Lengkapi detail pertandingan mendatang agar admin dapat memperbarui jadwal komunitas secepatnya."
+      "FormButton" "Kirim Jadwal"
+      "FormNote" "Tim admin akan meninjau informasi sebelum dipublikasikan."
+    ) }}
+  </div>
+</section>
+{{ end }}

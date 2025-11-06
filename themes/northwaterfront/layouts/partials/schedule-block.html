@@ -1,0 +1,74 @@
+{{ $matches := or .Matches (site.Data.matches) }}
+{{ $showForm := default false .ShowForm }}
+{{ $showLatest := default true .ShowLatest }}
+{{ $formAction := default "/terima-kasih/" .FormAction }}
+{{ $formTitle := default "Update Upcoming Match" .FormTitle }}
+{{ $formCopy := default "Sampaikan jadwal terbaru, perubahan waktu, atau lawan tanding baru melalui formulir berikut. Admin akan meninjau sebelum ditayangkan." .FormCopy }}
+{{ $formButton := default "Kirim Update" .FormButton }}
+{{ $formNote := default "Update akan diproses dalam 1x24 jam." .FormNote }}
+
+{{ if $showForm }}
+  <div class="nwf-grid nwf-grid--schedule">
+    <div class="nwf-stack">
+      {{ partial "schedule-tables.html" (dict "Matches" $matches "ShowLatest" $showLatest) }}
+    </div>
+    <div class="nwf-schedule__form" data-animate>
+      <p class="nwf-eyebrow">Submit Update</p>
+      <h3 class="nwf-schedule__title">{{ $formTitle }}</h3>
+      <p class="nwf-schedule__copy">{{ $formCopy }}</p>
+      <form
+        class="nwf-schedule-form"
+        name="match-update"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        action="{{ $formAction }}"
+        data-upload-form
+      >
+        <input type="hidden" name="form-name" value="match-update" />
+        <div class="nwf-form__group nwf-form__group--hidden">
+          <label for="match-bot-field">Jangan isi field ini</label>
+          <input id="match-bot-field" name="bot-field" type="text" />
+        </div>
+        <div class="nwf-form__group">
+          <label for="match-date">Tanggal</label>
+          <input id="match-date" name="date" type="date" required />
+        </div>
+        <div class="nwf-form__group">
+          <label for="match-shortDate">Tanggal Singkat</label>
+          <input id="match-shortDate" name="shortDate" type="text" placeholder="Misal: 20 Apr" required />
+        </div>
+        <div class="nwf-form__group">
+          <label for="match-opponent">Event / Lawan</label>
+          <input id="match-opponent" name="event" type="text" placeholder="Friendly vs. ..." required />
+        </div>
+        <div class="nwf-form__group">
+          <label for="match-location">Lokasi</label>
+          <input id="match-location" name="location" type="text" placeholder="Lokasi pertandingan" required />
+        </div>
+        <div class="nwf-form__group">
+          <label for="match-status">Status / Kick-off</label>
+          <input id="match-status" name="status" type="text" placeholder="Kick-off 17:00" required />
+        </div>
+        <div class="nwf-form__group">
+          <label for="match-statusType">Jenis Status</label>
+          <select id="match-statusType" name="statusType" required>
+            <option value="upcoming">Upcoming</option>
+            <option value="neutral">Training</option>
+            <option value="win">Win</option>
+            <option value="loss">Loss</option>
+          </select>
+        </div>
+        <div class="nwf-upload__submit">
+          <button type="submit" class="nwf-button nwf-button--accent">{{ $formButton }}</button>
+          <p class="nwf-upload__note">{{ $formNote }}</p>
+          <p class="nwf-upload__status" aria-live="polite">Mengirim update…</p>
+        </div>
+      </form>
+    </div>
+  </div>
+{{ else }}
+  <div class="nwf-stack">
+    {{ partial "schedule-tables.html" (dict "Matches" $matches "ShowLatest" $showLatest) }}
+  </div>
+{{ end }}

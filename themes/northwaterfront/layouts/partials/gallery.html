@@ -1,0 +1,39 @@
+<section class="nwf-section" id="galeri">
+  <div class="nwf-container">
+    <div class="nwf-section__header">
+      <div>
+        <p class="nwf-eyebrow">Galeri</p>
+        <h2 class="nwf-section__title">Moments on the Waterfront</h2>
+      </div>
+      <a class="nwf-link" href="#">Lihat semua foto</a>
+    </div>
+    <div class="nwf-gallery" data-animate>
+      {{ $images := slice
+        (dict "src" "images/waterfront.jpg" "alt" "Tim bersiap sebelum pertandingan")
+        (dict "src" "images/gallery-1.jpg" "alt" "Front")
+        (dict "src" "images/gallery-2.jpg" "alt" "Stronger")
+        (dict "src" "images/gallery-3.jpg" "alt" "Finisher")
+        (dict "src" "images/gallery-4.jpg" "alt" "Waiting ...")
+        (dict "src" "images/gallery-5.jpg" "alt" "Mind Play")
+        (dict "src" "images/gallery-6.jpg" "alt" "Core Play")
+        (dict "src" "images/gallery-7.jpg" "alt" "Pengatur Serangan")
+        (dict "src" "images/gallery-8.jpg" "alt" "Winger")
+      }}
+      {{ range $images }}
+        <figure class="nwf-gallery__item">
+          <a href="{{ .src | relURL }}" class="nwf-gallery__link" data-gallery-item>
+            <img src="{{ .src | relURL }}" alt="{{ .alt }}" loading="lazy" />
+          </a>
+          <figcaption>
+            <span>{{ .alt }}</span>
+          </figcaption>
+        </figure>
+      {{ end }}
+    </div>
+    <div class="nwf-lightbox" data-lightbox>
+      <button class="nwf-lightbox__close" type="button" data-lightbox-close aria-label="Tutup galeri">&times;</button>
+      <img class="nwf-lightbox__image" src="" alt="" data-lightbox-image />
+      <p class="nwf-lightbox__caption" data-lightbox-caption></p>
+    </div>
+  </div>
+</section>

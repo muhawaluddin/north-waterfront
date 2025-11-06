@@ -1,0 +1,73 @@
+{{ $hero := dict }}
+{{ with .Site.Params.hero }}
+  {{ $hero = merge $hero . }}
+{{ end }}
+{{ with site.Data.hero }}
+  {{ $hero = merge $hero . }}
+{{ end }}
+
+{{ $video := default "" (index $hero "video") }}
+{{ $poster := default "" (index $hero "poster") }}
+{{ $title := default "North WaterFront" (index $hero "title") }}
+{{ $subtitle := default "United by the beautiful game." (index $hero "subtitle") }}
+{{ $primaryCTA := default "Join the Community" (index $hero "primaryCTA") }}
+{{ $secondaryCTA := default "View Match Schedule" (index $hero "secondaryCTA") }}
+{{ $primaryLink := default "#daftar" (index $hero "primaryLink") }}
+{{ $secondaryLink := default "#jadwal" (index $hero "secondaryLink") }}
+
+{{ $hasVideo := and $video (ne (trim $video " ") "") }}
+{{ $hasPoster := and $poster (ne (trim $poster " ") "") }}
+
+{{ $isVideoRemote := false }}
+{{ if and $hasVideo (or (strings.HasPrefix $video "http://") (strings.HasPrefix $video "https://")) }}
+  {{ $isVideoRemote = true }}
+{{ end }}
+{{ $isPosterRemote := false }}
+{{ if and $hasPoster (or (strings.HasPrefix $poster "http://") (strings.HasPrefix $poster "https://")) }}
+  {{ $isPosterRemote = true }}
+{{ end }}
+
+{{ $videoURL := "" }}
+{{ if $hasVideo }}
+  {{ if $isVideoRemote }}
+    {{ $videoURL = $video }}
+  {{ else }}
+    {{ $videoURL = $video | relURL }}
+  {{ end }}
+{{ end }}
+
+{{ $posterURL := "" }}
+{{ if $hasPoster }}
+  {{ if $isPosterRemote }}
+    {{ $posterURL = $poster }}
+  {{ else }}
+    {{ $posterURL = $poster | relURL }}
+  {{ end }}
+{{ end }}
+
+<section class="nwf-hero {{ if not $hasVideo }}nwf-hero--no-video{{ end }}" id="beranda">
+  <div class="nwf-hero__media" data-parallax>
+    {{ if $hasVideo }}
+      <video
+        class="nwf-hero__video"
+        src="{{ $videoURL }}"
+        {{ if $hasPoster }}poster="{{ $posterURL }}"{{ end }}
+        autoplay
+        muted
+        loop
+        playsinline
+      ></video>
+    {{ else if $hasPoster }}
+      <img class="nwf-hero__image" src="{{ $posterURL }}" alt="{{ printf "%s hero image" $title }}" />
+    {{ end }}
+    <div class="nwf-hero__overlay"></div>
+  </div>
+  <div class="nwf-hero__content" data-parallax-content>
+    <h1 class="nwf-hero__title">{{ $title }}</h1>
+    <p class="nwf-hero__subtitle">{{ $subtitle }}</p>
+    <div class="nwf-hero__actions">
+      <a class="nwf-button nwf-button--outline" href="{{ $primaryLink }}">{{ $primaryCTA }}</a>
+      <a class="nwf-button nwf-button--outline nwf-button--ghost" href="{{ $secondaryLink }}">{{ $secondaryCTA }}</a>
+    </div>
+  </div>
+</section>

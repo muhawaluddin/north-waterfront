@@ -1,0 +1,27 @@
+upcoming:
+  - date: 2025-11-4
+    shortDate: "7 Nov"
+    event: "Friendly vs. Paraikatte United"
+    location: "Lapangan BSOEL"
+    status: "Kick-off 20:00"
+    statusType: "upcoming"
+
+latest:
+  - date: 2024-04-08
+    shortDate: "29 Okt"
+    event: "vs. Ukuhawah FC"
+    location: "Lapangan BSOEL"
+    result: "10 - 10"
+    statusType: "Draw"
+  - date: 2024-04-01
+    shortDate: "01 Apr"
+    event: "Training"
+    location: "Lapangan BSOEL"
+    result: "3 - 1"
+    statusType: "win"
+  - date: 2024-03-24
+    shortDate: "24 Mar"
+    event: "vs. YOTTA FC"
+    location: "Lapangan KARSA"
+    result: "5 - 9"
+    statusType: "loss"

@@ -1,0 +1,46 @@
+<section class="nwf-section nwf-section--alt" id="berita">
+  <div class="nwf-container">
+    <div class="nwf-section__header">
+      <div>
+        <p class="nwf-eyebrow">Berita &amp; Blog</p>
+        <h2 class="nwf-section__title">Latest News</h2>
+      </div>
+      <a class="nwf-link" href="#forum">Diskusi di Forum</a>
+    </div>
+    {{ $posts := first 3 (where .Site.RegularPages "Type" "blog") }}
+    <div class="nwf-grid nwf-grid--cards">
+      {{ if gt (len $posts) 0 }}
+        {{ range $posts }}
+          <article class="nwf-card" data-animate>
+            {{ with .Params.thumbnail }}
+              <img src="{{ . | relURL }}" alt="{{ $.Title }}" />
+            {{ else }}
+              <img src="{{ "images/news-placeholder.jpg" | relURL }}" alt="{{ $.Title }}" />
+            {{ end }}
+            <div class="nwf-card__content">
+              <p class="nwf-card__meta">{{ .Date.Format "02 Jan 2006" }}</p>
+              <h3>{{ .Title }}</h3>
+              <p>{{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary }}{{ end }}</p>
+              <a class="nwf-link" href="{{ .RelPermalink }}">Baca selengkapnya</a>
+            </div>
+          </article>
+        {{ end }}
+      {{ else }}
+        {{ range $i, $placeholder := (slice
+          (dict "title" "Menjaga Ritme Permainan" "copy" "Pelajari bagaimana pelatih menjaga tempo dan mematahkan pertahanan lawan." "image" "images/news-1.jpg")
+          (dict "title" "Matchday Stories" "copy" "Suasana di tepi teluk ketika matahari terbit, cerita dari lapangan hingga tribun." "image" "images/news-2.jpg")
+          (dict "title" "Program Akademi Junior" "copy" "Kelas fundamental setiap Sabtu pagi untuk generasi baru pesepakbola kota." "image" "images/news-3.jpg")
+        ) }}
+          <article class="nwf-card" data-animate>
+            <img src="{{ $placeholder.image | relURL }}" alt="{{ $placeholder.title }}" />
+            <div class="nwf-card__content">
+              <h3>{{ $placeholder.title }}</h3>
+              <p>{{ $placeholder.copy }}</p>
+              <a class="nwf-link" href="#">Baca selengkapnya</a>
+            </div>
+          </article>
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>

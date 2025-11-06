@@ -1,0 +1,76 @@
+{{ $matches := or .Matches (site.Data.matches) }}
+{{ $showLatest := default true .ShowLatest }}
+{{ $upcoming := slice }}
+{{ if and $matches (isset $matches "upcoming") }}
+  {{ $upcoming = $matches.upcoming }}
+{{ end }}
+{{ $latest := slice }}
+{{ if and $matches (isset $matches "latest") }}
+  {{ $latest = $matches.latest }}
+{{ end }}
+
+<div class="nwf-table-wrapper">
+  <table class="nwf-table">
+    <thead>
+      <tr>
+        <th>Tanggal</th>
+        <th>Event</th>
+        <th>Lokasi</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{ if gt (len $upcoming) 0 }}
+        {{ range $upcoming }}
+          {{ $statusType := default "upcoming" .statusType }}
+          <tr>
+            <td data-label="Tanggal">{{ with .shortDate }}{{ . }}{{ else }}{{ .date }}{{ end }}</td>
+            <td data-label="Event">{{ .event }}</td>
+            <td data-label="Lokasi">{{ .location }}</td>
+            <td data-label="Status">
+              <span class="nwf-status {{ printf "nwf-status--%s" $statusType }}"></span>
+              <span class="nwf-result {{ printf "nwf-result--%s" $statusType }}">
+                {{ with .status }}{{ . }}{{ else }}{{ if eq $statusType "upcoming" }}TBD{{ else }}-{{ end }}{{ end }}
+              </span>
+            </td>
+          </tr>
+        {{ end }}
+      {{ else }}
+        <tr>
+          <td colspan="4">Belum ada jadwal terbaru. Kirim update melalui halaman Jadwal.</td>
+        </tr>
+      {{ end }}
+    </tbody>
+  </table>
+</div>
+
+{{ if $showLatest }}
+  <div class="nwf-table-wrapper nwf-table-wrapper--compact">
+    <table class="nwf-table">
+      <thead>
+        <tr>
+          <th colspan="4">Hasil Terakhir</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ if gt (len $latest) 0 }}
+          {{ range $latest }}
+            {{ $statusType := default "neutral" .statusType }}
+            <tr>
+              <td>{{ with .shortDate }}{{ . }}{{ else }}{{ .date }}{{ end }}</td>
+              <td>{{ .event }}</td>
+              <td>{{ .location }}</td>
+              <td class="nwf-result {{ printf "nwf-result--%s" $statusType }}">
+                {{ with .result }}{{ . }}{{ else }}-{{ end }}
+              </td>
+            </tr>
+          {{ end }}
+        {{ else }}
+          <tr>
+            <td colspan="4">Belum ada catatan hasil pertandingan.</td>
+          </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  </div>
+{{ end }}

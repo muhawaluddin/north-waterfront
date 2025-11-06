@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hero Video · North WaterFront</title>
+<meta name="description" content="North WaterFront Football Community — Where the game meets the bay." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;800&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="/css/nwf.css" />
+
+  </head>
+  <body class="theme-dark">
+    <header class="nwf-header">
+  <nav class="nwf-nav" data-nav>
+    <div class="nwf-nav__inner">
+      
+      
+        
+      
+      
+      <div class="nwf-nav__brand">
+        <a href="/">
+          <img src="http://localhost:1313/images/logo-waterfront.png" alt="North WaterFront" />
+          <span class="sr-only">North WaterFront</span>
+        </a>
+      </div>
+      <button
+        class="nwf-nav__toggle"
+        aria-controls="primary-menu"
+        aria-expanded="false"
+        data-nav-toggle
+      >
+        <span class="sr-only">Toggle navigation</span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nwf-nav__menu" id="primary-menu" data-nav-menu>
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#tentang">Tentang Kami</a></li>
+        <li><a href="/upcoming">Jadwal</a></li>
+        <li><a href="#berita">Berita &amp; Blog</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+        <li><a href="#daftar">Daftar</a></li>
+      </ul>
+      <div class="nwf-nav__actions">
+        <a class="nwf-button nwf-button--outline nwf-button--nav" href="#daftar">Join</a>
+        <button class="nwf-toggle" type="button" data-theme-toggle aria-pressed="false">
+          <span class="nwf-toggle__icon" aria-hidden="true"></span>
+          <span class="sr-only">Toggle dark mode</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <main id="main">
+      
+<section class="nwf-section nwf-section--alt">
+  <div class="nwf-container">
+    <div class="nwf-stack">
+      <p class="nwf-eyebrow">Hero Settings</p>
+      <h1 class="nwf-section__title">Hero Video</h1>
+      
+        <p class="nwf-section__lead">Perbarui video hero North WaterFront dengan membagikan tautan video terbaru.</p>
+      
+      <ul class="nwf-upload__guidelines">
+        <li>Gunakan URL video MP4 yang dapat diakses publik (contoh: CDN, cloud storage, atau YouTube static link).</li>
+        <li>Minimal resolusi 1080p dan sudah dikonversi ke grayscale agar selaras dengan tema.</li>
+        <li>Poster image digunakan sebagai fallback untuk perangkat yang tidak memutar video otomatis.</li>
+      </ul>
+      <a class="nwf-link" href="/#beranda">Lihat hero saat ini</a>
+    </div>
+  </div>
+</section>
+
+<section class="nwf-section">
+  <div class="nwf-container">
+    <div class="nwf-schedule__form" data-animate>
+      <p class="nwf-eyebrow">Submit Hero Video</p>
+      <h2 class="nwf-schedule__title">Upload via URL</h2>
+      <p class="nwf-schedule__copy">
+        Kirim tautan video hero terbaru. Tim admin akan memverifikasi dan memperbarui konfigurasi <code>data/hero.yaml</code>.
+      </p>
+      <form
+        class="nwf-schedule-form"
+        name="hero-video"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        action="/terima-kasih/"
+        data-upload-form
+      >
+        <input type="hidden" name="form-name" value="hero-video" />
+        <div class="nwf-form__group nwf-form__group--hidden">
+          <label for="hero-bot-field">Jangan isi field ini</label>
+          <input id="hero-bot-field" name="bot-field" type="text" />
+        </div>
+        <div class="nwf-form__group">
+          <label for="hero-video-url">Video URL *</label>
+          <input
+            id="hero-video-url"
+            name="video"
+            type="url"
+            placeholder="https://cdn.example.com/hero-loop.mp4"
+            required
+          />
+        </div>
+        <div class="nwf-form__group">
+          <label for="hero-poster-url">Poster Image URL</label>
+          <input
+            id="hero-poster-url"
+            name="poster"
+            type="url"
+            placeholder="https://cdn.example.com/hero-poster.jpg"
+          />
+        </div>
+        <div class="nwf-form__group">
+          <label for="hero-title">Judul</label>
+          <input id="hero-title" name="title" type="text" placeholder="North WaterFront" />
+        </div>
+        <div class="nwf-form__group">
+          <label for="hero-tagline">Tagline</label>
+          <input id="hero-tagline" name="tagline" type="text" placeholder="Where the Game Meets the Bay" />
+        </div>
+        <div class="nwf-form__group">
+          <label for="hero-subtitle">Subjudul</label>
+          <input id="hero-subtitle" name="subtitle" type="text" placeholder="United by the beautiful game." />
+        </div>
+        <div class="nwf-form__group">
+          <label for="hero-primarycta">Teks CTA Utama</label>
+          <input id="hero-primarycta" name="primaryCTA" type="text" placeholder="Join the Community" />
+        </div>
+        <div class="nwf-form__group">
+          <label for="hero-primarylink">Link CTA Utama</label>
+          <input id="hero-primarylink" name="primaryLink" type="text" placeholder="#daftar" />
+        </div>
+        <div class="nwf-form__group">
+          <label for="hero-secondarycta">Teks CTA Kedua</label>
+          <input id="hero-secondarycta" name="secondaryCTA" type="text" placeholder="View Match Schedule" />
+        </div>
+        <div class="nwf-form__group">
+          <label for="hero-secondarylink">Link CTA Kedua</label>
+          <input id="hero-secondarylink" name="secondaryLink" type="text" placeholder="#jadwal" />
+        </div>
+        <div class="nwf-upload__submit">
+          <button type="submit" class="nwf-button nwf-button--accent">Kirim Hero Video</button>
+          <p class="nwf-upload__note">Perubahan akan ditinjau sebelum tampil di halaman utama.</p>
+          <p class="nwf-upload__status" aria-live="polite">Mengirim data hero…</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+    </main>
+    <footer class="nwf-footer" id="kontak">
+  <div class="nwf-container">
+    <div class="nwf-footer__grid">
+      <div>
+        <h3>North WaterFront</h3>
+        <p>Komunitas sepakbola urban dengan akar kuat di tepian teluk kota.</p>
+      </div>
+      <div>
+        <h4>Kontak</h4>
+        <p>Email: <a href="mailto:hello@northwaterfront.id">hello@northwaterfront.id</a></p>
+        <p>Lokasi: Lapangan Waterfront, Pier District</p>
+      </div>
+      <div>
+        <h4>Ikuti Kami</h4>
+        <ul class="nwf-social">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="nwf-footer__meta">
+      <p class="nwf-footer__copy">© 2025 North WaterFront Community. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+    <script src="/js/nwf.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+{{ define "main" }}
+<section class="nwf-section nwf-section--alt">
+  <div class="nwf-container">
+    <div class="nwf-section__header">
+      <div>
+        <p class="nwf-eyebrow">{{ humanize .Data.Term }}</p>
+        <h1 class="nwf-section__title">{{ .Title }}</h1>
+      </div>
+      <p class="nwf-section__lead">
+        Artikel dengan {{ lower (humanize .Data.Term) }} “{{ .Title }}”.
+      </p>
+    </div>
+    {{ $paginator := .Paginate (.Pages) }}
+    <div class="nwf-grid nwf-grid--cards">
+      {{ range $paginator.Pages }}
+        <article class="nwf-card" data-animate>
+          {{ with .Params.thumbnail }}
+            <img src="{{ . | relURL }}" alt="{{ $.Title }}" />
+          {{ end }}
+          <div class="nwf-card__content">
+            <p class="nwf-card__meta">{{ .Date.Format "02 Jan 2006" }}</p>
+            <h3>{{ .Title }}</h3>
+            <p>{{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary }}{{ end }}</p>
+            <a class="nwf-link" href="{{ .RelPermalink }}">Baca selengkapnya</a>
+          </div>
+        </article>
+      {{ end }}
+    </div>
+    {{ template "_internal/pagination.html" $paginator }}
+  </div>
+</section>
+{{ end }}

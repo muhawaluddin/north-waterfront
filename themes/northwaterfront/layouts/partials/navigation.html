@@ -1,0 +1,39 @@
+<header class="nwf-header">
+  <nav class="nwf-nav" data-nav>
+    <div class="nwf-nav__inner">
+      {{ $logo := .Site.Params.logo }}
+      {{ if not $logo }}
+        {{ $logo = "images/logo-waterfront.png" }}
+      {{ end }}
+      {{ $logoURL := cond (or (strings.HasPrefix $logo "http://") (strings.HasPrefix $logo "https://")) $logo ($logo | absURL) }}
+      <div class="nwf-nav__brand">
+        <a href="{{ "/" | relLangURL }}">
+          <img src="{{ $logoURL }}" alt="North WaterFront" />
+          <span class="sr-only">North WaterFront</span>
+        </a>
+      </div>
+      <button
+        class="nwf-nav__toggle"
+        aria-controls="primary-menu"
+        aria-expanded="false"
+        data-nav-toggle
+      >
+        <span class="sr-only">Toggle navigation</span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nwf-nav__menu" id="primary-menu" data-nav-menu>
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#tentang">Tentang Kami</a></li>
+        <li><a href="{{ "upcoming" | relURL }}">Jadwal</a></li>
+        <li><a href="#berita">Berita &amp; Blog</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+        <li><a href="#daftar">Daftar</a></li>
+      </ul>
+      <div class="nwf-nav__actions">
+        <a class="nwf-button nwf-button--outline nwf-button--nav" href="#daftar">Join</a>
+      </div>
+    </div>
+  </nav>
+</header>

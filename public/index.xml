@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>North WaterFront</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on North WaterFront</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Apr 2025 10:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Matchday di Tepian Kota</title>
+      <link>http://localhost:1313/blog/matchday-di-waterside/</link>
+      <pubDate>Sat, 12 Apr 2025 10:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/matchday-di-waterside/</guid>
+      <description>Sorotan pertandingan persahabatan North WaterFront melawan Harbor United dengan suasana ikonik tepi teluk.</description>
+    </item>
+    <item>
+      <title>Latihan Intensitas Terkendali</title>
+      <link>http://localhost:1313/blog/latihan-intensitas-terkendali/</link>
+      <pubDate>Sat, 05 Apr 2025 08:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/latihan-intensitas-terkendali/</guid>
+      <description>Menu latihan terbaru yang dirancang pelatih fisik untuk menjaga kebugaran tanpa mengorbankan pemulihan.</description>
+    </item>
+    <item>
+      <title>The WaterFront - Bukan Hanya Sekedar Tim</title>
+      <link>http://localhost:1313/blog/suara-dari-tribun/</link>
+      <pubDate>Sat, 29 Mar 2025 18:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/suara-dari-tribun/</guid>
+      <description>Cerita para supporter yang menjaga atmosfer waterfront tetap bergema sepanjang 90 menit.</description>
+    </item>
+    <item>
+      <title>Terima Kasih</title>
+      <link>http://localhost:1313/terima-kasih/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/terima-kasih/</guid>
+      <description>Terima kasih sudah membagikan cerita untuk komunitas North WaterFront.</description>
+    </item>
+  </channel>
+</rss>

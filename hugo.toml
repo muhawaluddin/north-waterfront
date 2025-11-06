@@ -1,0 +1,17 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'North WaterFront'
+theme = 'northwaterfront'
+
+[taxonomies]
+  tag = 'tags'
+  category = 'categories'
+
+[params.hero]
+  title = 'North WaterFront'
+  tagline = ''
+  subtitle = 'More Than a Team — A Tide of Passion.'
+  video = 'video/hero-loop.mp4'
+  poster = 'images/hero-poster.jpg'
+  primaryCTA = 'Join the Community'
+  secondaryCTA = 'View Match Schedule'

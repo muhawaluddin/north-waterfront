@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Upcoming Matches · North WaterFront</title>
+<meta name="description" content="North WaterFront Football Community — Where the game meets the bay." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;800&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="/css/nwf.css" />
+
+  </head>
+  <body>
+    <header class="nwf-header">
+  <nav class="nwf-nav" data-nav>
+    <div class="nwf-nav__inner">
+      
+      
+        
+      
+      
+      <div class="nwf-nav__brand">
+        <a href="/">
+          <img src="http://localhost:1313/images/logo-waterfront.png" alt="North WaterFront" />
+          <span class="sr-only">North WaterFront</span>
+        </a>
+      </div>
+      <button
+        class="nwf-nav__toggle"
+        aria-controls="primary-menu"
+        aria-expanded="false"
+        data-nav-toggle
+      >
+        <span class="sr-only">Toggle navigation</span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nwf-nav__menu" id="primary-menu" data-nav-menu>
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#tentang">Tentang Kami</a></li>
+        <li><a href="/upcoming">Jadwal</a></li>
+        <li><a href="#berita">Berita &amp; Blog</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+        <li><a href="#daftar">Daftar</a></li>
+      </ul>
+      <div class="nwf-nav__actions">
+        <a class="nwf-button nwf-button--outline nwf-button--nav" href="#daftar">Join</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <main id="main">
+      
+<section class="nwf-section nwf-section--alt">
+  <div class="nwf-container">
+    <div class="nwf-stack">
+      <p class="nwf-eyebrow">Jadwal</p>
+      <h1 class="nwf-section__title">Upcoming Matches</h1>
+      
+        <p class="nwf-section__lead">Kelola dan publikasikan jadwal terbaru North WaterFront melalui halaman khusus ini.</p>
+      
+      <a class="nwf-link" href="/#jadwal">Lihat ringkasan di beranda</a>
+    </div>
+  </div>
+</section>
+
+<section class="nwf-section">
+  <div class="nwf-container">
+    
+
+
+
+
+
+
+
+
+
+  <div class="nwf-grid nwf-grid--schedule">
+    <div class="nwf-stack">
+      
+
+
+
+  
+
+
+
+  
+
+
+<div class="nwf-table-wrapper">
+  <table class="nwf-table">
+    <thead>
+      <tr>
+        <th>Tanggal</th>
+        <th>Event</th>
+        <th>Lokasi</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        
+          
+          <tr>
+            <td data-label="Tanggal">7 Nov</td>
+            <td data-label="Event">Friendly vs. Paraikatte United</td>
+            <td data-label="Lokasi">Lapangan BSOEL</td>
+            <td data-label="Status">
+              <span class="nwf-status nwf-status--upcoming"></span>
+              <span class="nwf-result nwf-result--upcoming">
+                Kick-off 20:00
+              </span>
+            </td>
+          </tr>
+        
+      
+    </tbody>
+  </table>
+</div>
+
+
+  <div class="nwf-table-wrapper nwf-table-wrapper--compact">
+    <table class="nwf-table">
+      <thead>
+        <tr>
+          <th colspan="4">Hasil Terakhir</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          
+            
+            <tr>
+              <td>29 Okt</td>
+              <td>vs. Ukuhawah FC</td>
+              <td>Lapangan BSOEL</td>
+              <td class="nwf-result nwf-result--Draw">
+                10 - 10
+              </td>
+            </tr>
+          
+            
+            <tr>
+              <td>01 Apr</td>
+              <td>Training</td>
+              <td>Lapangan BSOEL</td>
+              <td class="nwf-result nwf-result--win">
+                3 - 1
+              </td>
+            </tr>
+          
+            
+            <tr>
+              <td>24 Mar</td>
+              <td>vs. YOTTA FC</td>
+              <td>Lapangan KARSA</td>
+              <td class="nwf-result nwf-result--loss">
+                5 - 9
+              </td>
+            </tr>
+          
+        
+      </tbody>
+    </table>
+  </div>
+
+
+    </div>
+    <div class="nwf-schedule__form" data-animate>
+      <p class="nwf-eyebrow">Submit Update</p>
+      <h3 class="nwf-schedule__title">Ajukan Jadwal Baru</h3>
+      <p class="nwf-schedule__copy">Lengkapi detail pertandingan mendatang agar admin dapat memperbarui jadwal komunitas secepatnya.</p>
+      <form
+        class="nwf-schedule-form"
+        name="match-update"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        action="/terima-kasih/"
+        data-upload-form
+      >
+        <input type="hidden" name="form-name" value="match-update" />
+        <div class="nwf-form__group nwf-form__group--hidden">
+          <label for="match-bot-field">Jangan isi field ini</label>
+          <input id="match-bot-field" name="bot-field" type="text" />
+        </div>
+        <div class="nwf-form__group">
+          <label for="match-date">Tanggal</label>
+          <input id="match-date" name="date" type="date" required />
+        </div>
+        <div class="nwf-form__group">
+          <label for="match-shortDate">Tanggal Singkat</label>
+          <input id="match-shortDate" name="shortDate" type="text" placeholder="Misal: 20 Apr" required />
+        </div>
+        <div class="nwf-form__group">
+          <label for="match-opponent">Event / Lawan</label>
+          <input id="match-opponent" name="event" type="text" placeholder="Friendly vs. ..." required />
+        </div>
+        <div class="nwf-form__group">
+          <label for="match-location">Lokasi</label>
+          <input id="match-location" name="location" type="text" placeholder="Lokasi pertandingan" required />
+        </div>
+        <div class="nwf-form__group">
+          <label for="match-status">Status / Kick-off</label>
+          <input id="match-status" name="status" type="text" placeholder="Kick-off 17:00" required />
+        </div>
+        <div class="nwf-form__group">
+          <label for="match-statusType">Jenis Status</label>
+          <select id="match-statusType" name="statusType" required>
+            <option value="upcoming">Upcoming</option>
+            <option value="neutral">Training</option>
+            <option value="win">Win</option>
+            <option value="loss">Loss</option>
+          </select>
+        </div>
+        <div class="nwf-upload__submit">
+          <button type="submit" class="nwf-button nwf-button--accent">Kirim Jadwal</button>
+          <p class="nwf-upload__note">Tim admin akan meninjau informasi sebelum dipublikasikan.</p>
+          <p class="nwf-upload__status" aria-live="polite">Mengirim update…</p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  </div>
+</section>
+
+    </main>
+    <footer class="nwf-footer" id="kontak">
+  <div class="nwf-container">
+    <div class="nwf-footer__grid">
+      <div>
+        <h3>North WaterFront</h3>
+        <p>More Than a Team — A Tide of Passion..</p>
+      </div>
+      <div>
+        <h4>Kontak</h4>
+        <p>Email: <a href="mailto:hello@northwaterfront.id">hello@northwaterfront.id</a></p>
+        <p>Lokasi: Sudiang, Makassar, Indonesia</p>
+      </div>
+      <div>
+        <h4>Ikuti Kami</h4>
+        <ul class="nwf-social">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="nwf-footer__meta">
+      <p class="nwf-footer__copy">© 2025 North WaterFront Community. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+    <script src="/js/nwf.js" defer></script>
+  </body>
+</html>

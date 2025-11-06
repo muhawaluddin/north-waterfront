@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fisik on North WaterFront</title>
+    <link>http://localhost:1313/tags/fisik/</link>
+    <description>Recent content in Fisik on North WaterFront</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 05 Apr 2024 08:30:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/fisik/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Latihan Intensitas Terkendali</title>
+      <link>http://localhost:1313/blog/latihan-intensitas-terkendali/</link>
+      <pubDate>Fri, 05 Apr 2024 08:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/latihan-intensitas-terkendali/</guid>
+      <description>Menu latihan terbaru yang dirancang pelatih fisik untuk menjaga kebugaran tanpa mengorbankan pemulihan.</description>
+    </item>
+  </channel>
+</rss>
