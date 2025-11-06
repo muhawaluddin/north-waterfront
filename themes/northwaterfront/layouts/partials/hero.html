@@ -19,6 +19,23 @@
   {{ $startTime = . }}
 {{ end }}
 
+{{ $defaultHeroLogo := "images/phinisi.png" }}
+{{ if not (fileExists (printf "static/%s" $defaultHeroLogo)) }}
+  {{ if fileExists "static/images/phinisi.jpeg" }}
+    {{ $defaultHeroLogo = "images/phinisi.jpeg" }}
+  {{ else }}
+    {{ $defaultHeroLogo = "images/logo-waterfront.png" }}
+  {{ end }}
+{{ end }}
+{{ $heroLogoPath := default $defaultHeroLogo (index $hero "logo") }}
+{{ $heroLogoURL := "" }}
+{{ if $heroLogoPath }}
+  {{ $heroLogoURL = $heroLogoPath }}
+  {{ if not (or (strings.HasPrefix $heroLogoURL "http://") (strings.HasPrefix $heroLogoURL "https://")) }}
+    {{ $heroLogoURL = $heroLogoURL | relURL }}
+  {{ end }}
+{{ end }}
+
 {{ $hasVideo := and $video (ne (trim $video " ") "") }}
 {{ $hasPoster := and $poster (ne (trim $poster " ") "") }}
 
@@ -68,11 +85,14 @@
     <div class="nwf-hero__overlay"></div>
   </div>
   <div class="nwf-hero__content" data-parallax-content>
-    <h1 class="nwf-hero__title">{{ $title }}</h1>
+    <div class="nwf-hero__branding">
+      {{ if $heroLogoURL }}<img class="nwf-hero__logo" src="{{ $heroLogoURL }}" alt="Logo North WaterFront" />{{ end }}
+      <h1 class="nwf-hero__title">{{ $title }}</h1>
+    </div>
     <p class="nwf-hero__subtitle">{{ $subtitle }}</p>
     <div class="nwf-hero__actions">
-      <a class="nwf-button nwf-button--outline" href="{{ $primaryLink }}">{{ $primaryCTA }}</a>
-      <a class="nwf-button nwf-button--outline nwf-button--ghost" href="{{ $secondaryLink }}">{{ $secondaryCTA }}</a>
+      <a class="nwf-button nwf-button--solid" href="{{ $primaryLink }}">{{ $primaryCTA }}</a>
+      <a class="nwf-button nwf-button--outline" href="{{ $secondaryLink }}">{{ $secondaryCTA }}</a>
     </div>
   </div>
 </section>

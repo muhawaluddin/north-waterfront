@@ -271,6 +271,12 @@ a {
   background: linear-gradient(140deg, rgba(0, 0, 0, 0.92), rgba(12, 12, 12, 0.6));
 }
 
+.nwf-hero__branding {
+  display: grid;
+  justify-items: center;
+  gap: clamp(0.6rem, 1.8vw, 1.1rem);
+}
+
 .nwf-hero__title {
   font-family: var(--font-heading);
   font-weight: 800;
@@ -279,6 +285,17 @@ a {
   letter-spacing: 0.08em;
   margin: 0;
   line-height: 1.05;
+  text-align: center;
+}
+
+.nwf-hero__logo {
+  width: clamp(60px, 14vw, 80px);
+  height: clamp(60px, 14vw, 80px);
+  border-radius: 50%;
+  display: block;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.1) brightness(1.15);
+  opacity: 0.95;
 }
 
 .nwf-hero__subtitle {
@@ -318,6 +335,7 @@ a {
 
 .nwf-button--outline {
   border: 1px solid rgba(255, 255, 255, 0.8);
+  color: var(--color-white);
 }
 
 .nwf-button--outline:hover {
@@ -343,9 +361,7 @@ a {
 }
 
 .nwf-button--solid:hover {
-  background-color: transparent;
-  color: var(--color-white);
-  border-color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.85);
 }
 
 .nwf-button--accent {
@@ -1216,6 +1232,11 @@ a {
   .nwf-hero__title {
     font-size: clamp(2rem, 8vw, 3.1rem);
     letter-spacing: 0.09em;
+  }
+
+  .nwf-hero__logo {
+    width: clamp(48px, 18vw, 64px);
+    height: clamp(48px, 18vw, 64px);
   }
 
   .nwf-hero__subtitle {

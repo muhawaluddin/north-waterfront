@@ -24,6 +24,7 @@ theme = 'northwaterfront'
   subtitle = 'United by the beautiful game.'
   video = 'video/hero-loop.mp4'
   poster = 'images/waterfront.jpg'
+  logo = 'images/phinisi.png'
   startTime = 12
   primaryCTA = 'Join the Community'
   secondaryCTA = 'View Match Schedule'
