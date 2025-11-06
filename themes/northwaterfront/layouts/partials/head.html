@@ -1,11 +1,65 @@
+{{ $seo := .Site.Params.seo }}
+{{ $siteTitle := .Site.Title }}
+{{ $pageTitle := cond .IsHome (default $siteTitle (index $seo "site_name")) (printf "%s · %s" .Title $siteTitle) }}
+{{ $description := "" }}
+{{ with .Params.seo }}{{ with .description }}{{ $description = . }}{{ end }}{{ end }}
+{{ if not $description }}{{ with .Params.description }}{{ $description = . }}{{ end }}{{ end }}
+{{ if and (not $description) (.Summary) }}
+  {{ $summary := .Summary | plainify | htmlUnescape }}
+  {{ $description = (truncate 160 $summary) }}
+{{ end }}
+{{ if not $description }}{{ with $seo.description }}{{ $description = . }}{{ end }}{{ end }}
+{{ $description = $description | plainify | htmlUnescape }}
+
+{{ $canonical := .Permalink }}
+{{ $image := "" }}
+{{ with .Params.seo }}{{ with .image }}{{ $image = . }}{{ end }}{{ end }}
+{{ if and (not $image) (.Params.thumbnail) }}{{ $image = .Params.thumbnail }}{{ end }}
+{{ if and (not $image) (.Params.featured_image) }}{{ $image = .Params.featured_image }}{{ end }}
+{{ if and (not $image) ($seo.image) }}{{ $image = $seo.image }}{{ end }}
+{{ $isRemoteImage := or (strings.HasPrefix $image "http://") (strings.HasPrefix $image "https://") }}
+{{ if and $image (not $isRemoteImage) }}{{ $image = $image | absURL }}{{ end }}
+
+{{ $keywords := slice }}
+{{ with .Params.seo }}{{ with .keywords }}{{ $keywords = . }}{{ end }}{{ end }}
+{{ if or (not $keywords) (eq (len $keywords) 0) }}
+  {{ if $seo.keywords }}{{ $keywords = $seo.keywords }}{{ end }}
+{{ end }}
+
+{{ $twitterSite := default "" $seo.twitter }}
+{{ $author := "" }}
+{{ with .Params.seo }}{{ with .author }}{{ $author = . }}{{ end }}{{ end }}
+{{ if not $author }}
+  {{ with $seo.author }}{{ $author = . }}{{ end }}
+{{ else }}
+{{ end }}
+{{ if not $author }}
+  {{ with .Site.Author }}{{ with .name }}{{ $author = . }}{{ end }}{{ end }}
+{{ end }}
+
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>
-  {{- block "title" . -}}
-  {{ if .IsHome }}North WaterFront · Where the Game Meets the Bay{{ else }}{{ .Title }} · North WaterFront{{ end }}
-  {{- end -}}
-</title>
-<meta name="description" content="North WaterFront Football Community — Where the game meets the bay." />
+<title>{{ $pageTitle }}</title>
+{{ if $description }}<meta name="description" content="{{ $description }}" />{{ end }}
+{{ if $keywords }}<meta name="keywords" content="{{ delimit $keywords ", " }}" />{{ end }}
+<meta name="robots" content="index,follow" />
+{{ if $author }}<meta name="author" content="{{ $author }}" />{{ end }}
+<link rel="canonical" href="{{ $canonical }}" />
+
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:title" content="{{ $pageTitle }}" />
+{{ if $description }}<meta property="og:description" content="{{ $description }}" />{{ end }}
+<meta property="og:url" content="{{ $canonical }}" />
+<meta property="og:site_name" content="{{ default $siteTitle (index $seo "site_name") }}" />
+{{ with $seo.locale }}<meta property="og:locale" content="{{ . }}" />{{ end }}
+{{ if $image }}<meta property="og:image" content="{{ $image }}" />{{ end }}
+
+<meta name="twitter:card" content="{{ if $image }}summary_large_image{{ else }}summary{{ end }}" />
+{{ if $twitterSite }}<meta name="twitter:site" content="{{ $twitterSite }}" />{{ end }}
+<meta name="twitter:title" content="{{ $pageTitle }}" />
+{{ if $description }}<meta name="twitter:description" content="{{ $description }}" />{{ end }}
+{{ if $image }}<meta name="twitter:image" content="{{ $image }}" />{{ end }}
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
@@ -13,3 +67,25 @@
   rel="stylesheet"
 />
 <link rel="stylesheet" href="{{ "css/nwf.css" | relURL }}" />
+{{ if .IsHome }}
+  {{ with .Site.Params.organization }}
+    {{ $orgLogo := .logo }}
+    {{ if $orgLogo }}
+      {{ if not (or (strings.HasPrefix $orgLogo "http://") (strings.HasPrefix $orgLogo "https://")) }}
+        {{ $orgLogo = $orgLogo | absURL }}
+      {{ end }}
+    {{ end }}
+    {{ $orgDesc := $description }}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SportsOrganization",
+        "name": "{{ .name }}",
+        "url": "{{ .url }}",
+        {{ if $orgLogo }}"logo": "{{ $orgLogo }}",{{ end }}
+        {{ with .sameAs }}"sameAs": {{ . | jsonify }},{{ end }}
+        "description": "{{ $orgDesc }}"
+      }
+    </script>
+  {{ end }}
+{{ end }}

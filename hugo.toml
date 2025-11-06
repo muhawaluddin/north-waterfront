@@ -7,11 +7,32 @@ theme = 'northwaterfront'
   tag = 'tags'
   category = 'categories'
 
+[params]
+  logo = 'images/logo-waterfront.png'
+
+[params.seo]
+  site_name = 'North WaterFront Football Community'
+  description = 'North WaterFront adalah komunitas sepak bola urban di tepian teluk kota, menghubungkan pemain, supporter, dan warga untuk merayakan permainan indah.'
+  keywords = ['North WaterFront', 'Komunitas Sepakbola', 'Football Community', 'Waterfront FC', 'Sparring Sepakbola']
+  image = 'images/waterfront.jpg'
+  locale = 'id_ID'
+  twitter = '@northwaterfront'
+  author = 'North WaterFront Community'
+
 [params.hero]
   title = 'North WaterFront'
-  tagline = ''
-  subtitle = 'More Than a Team — A Tide of Passion.'
+  subtitle = 'United by the beautiful game.'
   video = 'video/hero-loop.mp4'
-  poster = 'images/hero-poster.jpg'
+  poster = 'images/waterfront.jpg'
   primaryCTA = 'Join the Community'
   secondaryCTA = 'View Match Schedule'
+
+[params.organization]
+  name = 'North WaterFront Football Community'
+  url = 'https://example.org/'
+  logo = 'images/logo-waterfront.png'
+  sameAs = [
+    'https://www.instagram.com/',
+    'https://www.youtube.com/',
+    'https://www.tiktok.com/'
+  ]
